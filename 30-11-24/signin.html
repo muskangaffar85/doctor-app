@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for all elements */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image style */
+        .container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Heading style */
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        /* Form input fields */
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Submit button */
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        /* Forgot password link */
+        .forgot-password {
+            text-align: left;
+            font-size: 14px;
+            margin-top: 10px;
+            color: #007BFF;
+            cursor: pointer;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* Social media sign-in buttons */
+        .social-btns {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .social-btn {
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 250px;
+            transition: background-color 0.3s;
+        }
+
+        /* Google button */
+        .google {
+            background-color: #db4437;
+            color: white;
+        }
+
+        .google:hover {
+            background-color: #c1351d;
+        }
+
+        /* Facebook button */
+        .facebook {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .facebook:hover {
+            background-color: #2d4373;
+        }
+
+        /* Apple button */
+        .apple {
+            background-color: #333;
+            color: white;
+        }
+
+        .apple:hover {
+            background-color: #1a1a1a;
+        }
+
+        /* Icon style in buttons */
+        .social-btn i {
+            margin-right: 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .container img {
+                width: 80%; /* Slightly smaller image on tablets */
+            }
+
+            h2 {
+                font-size: 22px; /* Slightly smaller heading */
+            }
+
+            .form-group input {
+                font-size: 14px; /* Smaller font size for smaller screens */
+            }
+
+            .form-group button {
+                font-size: 14px; /* Button text size smaller */
+                padding: 10px;
+            }
+
+            .forgot-password {
+                font-size: 13px;
+            }
+
+            .social-btn {
+                width: 100%;
+                max-width: 100%; /* Full width on smaller screens */
+                font-size: 14px; /* Smaller text for buttons */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .container img {
+                width: 70%; /* Even smaller image on mobile phones */
+            }
+
+            h2 {
+                font-size: 20px; /* Even smaller heading */
+            }
+
+            .form-group input {
+                font-size: 12px; /* Smaller input fields */
+                padding: 8px; /* Adjust padding */
+            }
+
+            .form-group button {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .forgot-password {
+                font-size: 12px;
+            }
+
+            .social-btn {
+                width: 100%;
+                padding: 10px 0;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Image -->
+    <img src="https://media.istockphoto.com/id/1349342737/vector/a-woman-is-looking-for-a-doctor-for-an-online-consultation-online-medical-services.jpg?s=612x612&w=0&k=20&c=8Upvu-moxEnP0acG9Nr5iNOuEH62z3ZL0r-79udwsgw=" alt="Logo">
+
+    <!-- Heading -->
+    <h6>or sign in with email </h6>
+
+    <!-- Login Form -->
+    <form id="loginForm" action="" method="POST" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Continue</button>
+        </div>
+
+        <!-- Forgot Password link -->
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+        </div>
+    </form>
+
+    <!-- Social Sign-in buttons -->
+    <div class="social-btns">
+        <button class="social-btn google" onclick="socialSignIn('google')">
+            <i class="fab fa-google"></i> Sign in with Google
+        </button>
+        <button class="social-btn facebook" onclick="socialSignIn('facebook')">
+            <i class="fab fa-facebook-f"></i> Sign in with Facebook
+        </button>
+        <button class="social-btn apple" onclick="socialSignIn('apple')">
+            <i class="fab fa-apple"></i> Sign in with Apple
+        </button>
+    </div>
+</div>
+  <script type="module" src="./app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+
+
+</body>
+</html>
+
+
